@@ -16,7 +16,6 @@ a {
 }
 a,
 a img {
-  -webkit-transition: all .3s;
   transition: all .3s;
 }
 a:hover,
@@ -65,14 +64,9 @@ li {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
 }
 #gnav ul {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
-  -ms-flex-pack: center;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 #gnav li a {
@@ -88,27 +82,116 @@ li {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  text-align: center;
   color: #fff;
   padding-left: 40px;
   padding-right: 40px;
   width: 100%;
   max-width: 600px;
 }
+#header .hamburger,
+#header .globalMenuSp {
+  display: none;
+}
 @media screen and (max-width: 768px) {
-  #gnav ul {
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -ms-flex-pack: center;
-    -webkit-box-pack: center;
-    justify-content: center;
+  #gnav {
+    display: none;
   }
-  #gnav li a {
-    font-size: 1.250rem;
-    padding: 5px 15px;
+  /* spmenu */
+  #header .hamburger {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    right: 10px;
+    top: 12px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    text-align: center;
   }
+  #header .hamburger span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    left: 6px;
+    background: #fff;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition   : 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+  #header .hamburger span:nth-child(1) {
+    top: 10px;
+  }
+  #header .hamburger span:nth-child(2) {
+    top: 20px;
+  }
+  #header .hamburger span:nth-child(3) {
+    top: 30px;
+  }
+  /* ナビ開いてる時のボタン */
+  #header .hamburger.active span:nth-child(1) {
+    top : 16px;
+    left: 6px;
+    background :#fff;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform   : rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  #header .hamburger.active span:nth-child(2),
+  #header .hamburger.active span:nth-child(3) {
+    top: 16px;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform   : rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  #header nav.globalMenuSp {
+    display: block;
+    position: fixed;
+    z-index : 2;
+    top  : 0;
+    left : 0;
+    color: #fff;
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition: opacity .6s ease, visibility .6s ease;
+  }
+  #header nav.globalMenuSp ul {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+  }
+  #header nav.globalMenuSp ul li {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    transition: .4s all;
+  }
+  #header nav.globalMenuSp ul li:last-child {
+    padding-bottom: 0;
+  }
+  #header nav.globalMenuSp ul li:hover{
+    background :#ddd;
+  }
+  #header nav.globalMenuSp ul li a {
+    display: block;
+    color: #fff;
+    padding: 1em 0;
+    text-decoration :none;
+  }
+
+/* このクラスを、jQueryで付与・削除する */
+  #header nav.globalMenuSp.active {
+  opacity: 100;
+
+}
+
+
 }
 
 /*--------------------------------
@@ -139,11 +222,7 @@ latest
 ---------------------------------*/
 #latest .latest-wrapper {
   padding: 20px 0;
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
-  -ms-flex-pack: justify;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 #latest .latest-image {
@@ -168,9 +247,6 @@ latest
 @media screen and (max-width: 767px) {
   #latest .latest-wrapper {
     width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
   }
   #latest .latest-image {
@@ -186,13 +262,8 @@ latest
 ---------------------------------*/
 #works .works-wrapper {
   padding: 20px 0;
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -ms-flex-pack: justify;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 #works figure {
@@ -227,13 +298,9 @@ latest
 ---------------------------------*/
 #about .about-wrapper {
   padding: 20px 0;
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
   -ms-flex-pack: justify;
   -webkit-box-pack: justify;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   justify-content: space-between;
 }
@@ -253,9 +320,6 @@ latest
 @media screen and (max-width: 559px) {
   #about .about-wrapper {
     width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
   }
   #about .about-image {
@@ -271,25 +335,15 @@ latest
 ---------------------------------*/
 #skill .skill-wrapper {
   padding: 20px 0;
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -ms-flex-pack: justify;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 #skill .skill-card {
   width: 46%;
   margin-bottom: 50px;
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-  -ms-flex-pack: justify;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 #skill .skill-icon {
