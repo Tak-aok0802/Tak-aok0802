@@ -150,7 +150,7 @@ li {
 
   #header nav.globalMenuSp {
     display: block;
-    position: fixed;
+    /* position: fixed; */
     z-index : 2;
     top  : 0;
     left : 0;
@@ -158,6 +158,7 @@ li {
     background: rgba(0,0,0,0.7);
     text-align: center;
     width: 100%;
+    height: 100vh;
     opacity: 0;
     transition: opacity .6s ease, visibility .6s ease;
   }
