@@ -158,7 +158,7 @@ li {
     background: rgba(0,0,0,0.7);
     text-align: center;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     opacity: 0;
     transition: opacity .6s ease, visibility .6s ease;
   }
